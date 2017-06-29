@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "mybatis-3-mapper.dtd" >
+<mapper namespace="cn.appsys.dao.appCategory.AppCategoryMapper">
+
+
+
+<!-- 获得一级下的子类 -->
+<select id="getGoryChild" resultType="AppCategory" >
+<!-- 当数据库要现在null对应的数据时 -->
+SELECT * FROM app_category where
+<if test="parentId!=null" >parentId=#{parentId}</if>
+<if test="parentId==null">parentId is null</if>
+	
+
+</select>
+
+</mapper>
